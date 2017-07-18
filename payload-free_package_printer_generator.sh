@@ -78,7 +78,7 @@ do
 				d)
 					gui_display_name=${OPTARG}
 					FLAG=false;
-					if [ -z "${location}" ]; then
+					if [ -z "${gui_display_name}" ]; then
 						ERR=true
 						MSG="$MSG | Please make sure to enter a display name for the printer."
 					fi
