@@ -52,3 +52,5 @@ To add one additional option to the printer configuration (in this example, a cu
 
 
 Inspired by [Nick McSpadden](https://github.com/nmcspadden)'s **PrinterGenerator** tool: [https://github.com/nmcspadden/PrinterGenerator](https://github.com/nmcspadden/PrinterGenerator)
+
+Blog posts: [https://derflounder.wordpress.com/category/payload-free_package_printer_generator/](https://derflounder.wordpress.com/category/payload-free_package_printer_generator/)
