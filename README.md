@@ -22,7 +22,7 @@ Options:
 * **-9**: Specify ninth printer option. (optional)
 * **-c**: Name of the Apple Developer ID Installer certificate being used to sign the payload-free package. Certificate name should be formatted like `Developer ID Installer: Your Name` or `Developer ID Installer: Your Name (F487797D)`. (optional)
 
-**Note:** By default, printer sharing is disabled.
+**Note:** By default, printer sharing is disabled as part of the printer configuration.
 
 **Examples:**
 
