@@ -26,26 +26,26 @@ Options:
 
 **Examples:**
 
-To create an unsigned payload-free package using only the required printer configuration options:
+To create an unsigned payload-free package using only the required printer configuration options, run the command shown below with root privileges:
 
 `/path/to/payload-free_package_printer_generator.sh -n PrinterQueueGoesHere -d PrinterNameGoesHere -a lpd://ip.address.goes.here -p /Library/Printers/PPDs/Contents/Resources/PrinterDriverPPDHere.gz`
 
-To create a signed payload-free package using only the required printer configuration options:
+To create a signed payload-free package using only the required printer configuration options, run the command shown below with root privileges::
 
 `/path/to/payload-free_package_printer_generator.sh -n PrinterQueueGoesHere -d PrinterNameGoesHere -a lpd://ip.address.goes.here -p /Library/Printers/PPDs/Contents/Resources/PrinterDriverPPDHere.gz -c "Developer ID Installer: Your Name (F487797D)"`
 
-To create a signed payload-free package which creates a printer using a displayed name with spaces, add quotation marks to the displayed printer name:
+To create a signed payload-free package which creates a printer using a displayed name with spaces, add quotation marks to the displayed printer name and then run the command shown below with root privileges::
  
 `/path/to/payload-free_package_printer_generator.sh -n PrinterQueueGoesHere -d "Printer Name Goes Here" -a lpd://ip.address.goes.here -p /Library/Printers/PPDs/Contents/Resources/PrinterDriverPPDHere.gz  -c "Developer ID Installer: Your Name (F487797D)"`
 
 
 Other flags can be added as needed:
 
-To add one additional option to the printer configuration (in this example, a custom tray for an HP printer) and create an unsigned payload-free package:
+To add one additional option to the printer configuration (in this example, a custom tray for an HP printer) and create an unsigned payload-free package, run the command shown below with root privileges::
 
 `/path/to/payload-free_package_printer_generator.sh -n PrinterQueueGoesHere -d PrinterNameGoesHere -a lpd://ip.address.goes.here -p /Library/Printers/PPDs/Contents/Resources/PrinterDriverPPDHere.gz -1 HPOptionDuplexer=True`
 
- To add two additional options to the printer configuration (in this example, a custom tray for an HP printer and a specified output mode) and sign the payload-free package:
+ To add two additional options to the printer configuration (in this example, a custom tray for an HP printer and a specified output mode) and sign the payload-free package, run the command shown below with root privileges::
 
 `/path/to/payload-free_package_printer_generator.sh -n PrinterQueueGoesHere -d PrinterNameGoesHere -a lpd://ip.address.goes.here -p /Library/Printers/PPDs/Contents/Resources/PrinterDriverPPDHere.gz -1 HPOptionDuplexer=True -2 OutputMode=normal -c "Developer ID Installer: Your Name (F487797D)"`
 
