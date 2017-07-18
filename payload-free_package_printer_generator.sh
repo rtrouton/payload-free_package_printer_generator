@@ -395,7 +395,7 @@ echo "# Remove existing printer queue if one exists." >> "$postinstall"
 echo "/usr/sbin/lpadmin -x ${printerqueue}" >> "$postinstall"
 echo "" >> "$postinstall"
 echo "# Add new printer queue with the specified options" >> "$postinstall"
-echo "/usr/sbin/lpadmin -E -p \"${printerqueue}\" -L \"${location}\" -D \"${gui_display_name}\" -v \"${address}\" -P \"${driver_ppd}\" -o \"printer-is-shared=false\" ${add_option1}${add_option2}${add_option3}${add_option4}${add_option5}${add_option6}${add_option7}${add_option8}${add_option9}-E" >> "$postinstall"
+echo "/usr/sbin/lpadmin -p \"${printerqueue}\" -L \"${location}\" -D \"${gui_display_name}\" -v \"${address}\" -P \"${driver_ppd}\" -o \"printer-is-shared=false\" ${add_option1}${add_option2}${add_option3}${add_option4}${add_option5}${add_option6}${add_option7}${add_option8}${add_option9}-E" >> "$postinstall"
 
 # Set script to be executable
 
