@@ -9,7 +9,7 @@ Options:
 * **-n**: Name of the print queue. May not contain spaces, tabs, # or / characters. (**required**)
 * **-l**: The physical location of the printer. Examples may include `Reception Desk`, `Librarian's Office` or `Second Floor, Room 2C456` (optional)
 * **-d**: The printer name which is displayed in the **Printers & Scanners** pane of System Preferences, as well as in the print dialogue boxes. (**required**)
-* **-a**: The IP or DNS address of the printer. Protocol must be specified as the address (for example, use `lpd://ip.address.goes.here` or `lpd://dns.address.goes.here` for LPR printing.) (**required**)
+* **-a**: The IP or DNS address of the printer. Protocol must be specified as part of the address (for example, use `lpd://ip.address.goes.here` or `lpd://dns.address.goes.here` for LPR printing.) (**required**)
 * **-p**: Name of the driver file in `/Library/Printers/PPDs/Contents/Resources/`. This must use the full path to the drive (starting with `/Library`). (**required**)
 * **-1**: Specify first printer option. (optional)
 * **-2**: Specify second printer option. (optional)
