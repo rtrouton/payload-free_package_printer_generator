@@ -175,6 +175,8 @@ do
         esac
 done
 
+# Display warning if the printer queue setting hasn't been entered.
+
 if [ -z "${printerqueue}" ]; then
     echo ""
 	echo ">> PROBLEM << : Please make sure to enter a printer queue name using the -n option. Displaying script options below."
@@ -182,6 +184,8 @@ if [ -z "${printerqueue}" ]; then
 	phelp
 	exit 1
 fi
+
+# Display warning if the printer's display name setting hasn't been entered.
 
 if [ -z "${gui_display_name}" ]; then
     echo ""
@@ -191,6 +195,8 @@ if [ -z "${gui_display_name}" ]; then
 	exit 1
 fi
 
+# Display warning if the IP or DNS URL setting hasn't been entered.
+
 if [ -z "${address}" ]; then
     echo ""
 	echo ">> PROBLEM << : Please make sure to enter the address URL for the printer with the -a parameter. Displaying script options below."
@@ -198,6 +204,8 @@ if [ -z "${address}" ]; then
 	phelp
 	exit 1
 fi
+
+# Display warning if the printer driver location setting hasn't been entered.
 
 if [ -z "${driver_ppd}" ]; then
     echo ""
@@ -276,7 +284,10 @@ if [[ "${signing_cert}" != "" ]]; then
 fi
 echo ""
 
-#Creating the payload-free package script
+# Creating the payload-free package script
+
+# Remove any previous build directories whose names match
+# the build directory which is about to be created.
 
 if [[ -d /tmp/"${printerqueue}" ]]; then
     rm -rf /tmp/"${printerqueue}"
@@ -286,6 +297,9 @@ fi
 
 mkdir -p /tmp/"${printerqueue}"/scripts
 mkdir -p /tmp/"${printerqueue}"/nopayload
+
+# Take any entered printer options and set them into the 
+# variable format used by the payload-free package script.
 
 if [[ "${option_1}" != "" ]]; then
    add_option1="-o \"${option_1}\" "
@@ -397,17 +411,26 @@ echo "" >> "$postinstall"
 echo "# Add new printer queue with the specified options" >> "$postinstall"
 echo "/usr/sbin/lpadmin -p \"${printerqueue}\" -L \"${location}\" -D \"${gui_display_name}\" -v \"${address}\" -P \"${driver_ppd}\" -o \"printer-is-shared=false\" ${add_option1}${add_option2}${add_option3}${add_option4}${add_option5}${add_option6}${add_option7}${add_option8}${add_option9}-E" >> "$postinstall"
 
-# Set script to be executable
+# Set postinstall script to be executable
 
 /bin/chmod a+x "$postinstall"
 
 pkgid="com.github.create_${printerqueue}_printer"
 pkgvers=$(date +"%Y.%j.%H.%s")
 
+# Depending if the option for signing the payload-free package has been set, one of the following actions is performed:
+#
+# - If no certificate option has been set, an unsigned payload-free package is created.
+# - If a signing certificate has been specified, a signed payload-free package is created
+#   using the specified signing certificate.
+
 if [[ -z "${signing_cert}" ]]; then
     pkgbuild --identifier "${pkgid}" --version "${pkgvers}" --root /tmp/"${printerqueue}"/nopayload --scripts /tmp/"${printerqueue}"/scripts /tmp/"${printerqueue}"/"Create ${gui_display_name} Printer.pkg"
 else
     pkgbuild --identifier "${pkgid}" --version "${pkgvers}" --root /tmp/"${printerqueue}"/nopayload --scripts /tmp/"${printerqueue}"/scripts --sign "${signing_cert}" /tmp/"${printerqueue}"/"Create ${gui_display_name} Printer.pkg"
 fi
+
+# Once the payload-free package has been created, a new Finder window opens
+# to display the new payload-free package in its build location.
 
 open /tmp/"${printerqueue}"
