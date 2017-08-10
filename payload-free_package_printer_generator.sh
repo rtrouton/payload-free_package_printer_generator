@@ -322,19 +322,19 @@ if [[ "${option_5}" != "" ]]; then
 fi
 
 if [[ "${option_6}" != "" ]]; then
-    add_option5="-o \"${option_6}\" "
+    add_option6="-o \"${option_6}\" "
 fi
 
 if [[ "${option_7}" != "" ]]; then
-    add_option5="-o \"${option_7}\" "
+    add_option7="-o \"${option_7}\" "
 fi
 
 if [[ "${option_8}" != "" ]]; then
-    add_option5="-o \"${option_8}\" "
+    add_option8="-o \"${option_8}\" "
 fi
 
 if [[ "${option_9}" != "" ]]; then
-    add_option5="-o \"${option_9}\" "
+    add_option9="-o \"${option_9}\" "
 fi
 
 
